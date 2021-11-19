@@ -1,0 +1,35 @@
+Step 01: 
+  Check SSH exists or not.
+    ==> ls -a -l ~/.ssh
+
+Step 02:
+  Now generate the SSH key from the terminal.
+    ==> ssh-keygen -t rsa -b 4096 -C "youremail@domain.com"
+      Tip: It will ask you few questions skip them if they are not really important for you, and give file name must.
+      Example: (sumit-deqode-mac)
+
+Step 03: 
+  Now check agent running or not.
+    ==> eval "$(ssh-agent -s)"
+
+Step 04:
+  Add SSH key with newly created file.
+    ==> ssh-add -K ~/.ssh/id_rsa
+    Note: In my case file name is (sumit-deqode-mac), so command will be ssh-add -K ~/.ssh/sumit-deqode-mac
+
+Warning: If above command not work for you try below one.
+  ==> ssh-add ~/.ssh/id_rsa
+  In this command file name should be (sumit-deqode-mac) in mine case.
+
+Step 05: 
+  Now push the code if it ask for username and password means configuration setup not proper.
+  So now follow below step(s).
+
+Step 06:
+  Check the remote
+    ==> git remote -v 
+  Now remove the existing
+    ==> git remote remove origin 
+  Add new one which repo you want to be
+    ==> git remote add origin git@github.com:user/repo.git
+    So in my case it is (git remote add origin git@github.com:syadav-deqode/test-git.git)
